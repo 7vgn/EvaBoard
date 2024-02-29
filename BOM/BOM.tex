@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage[a4paper, landscape, margin=2.5cm]{geometry}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{textgreek}
+\usepackage{hyperref}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+\pagestyle{empty}
+\section*{EvaBoard evolved -- Bill of Materials}
+Please read the \href{../Guide/EvaBoardGuide.pdf}{guide book} before ordering. 
+The table below lists the codes for ordering the components from \href{https://reichelt.de/}{Reichelt}. 
+
+\begin{center}
+\begin{longtable}{|l|l|l|l|l|}
+\hline
+\textbf{Reference}&\textbf{Part}&\textbf{Value}&\textbf{Quantity}&\textbf{Reichelt\#}\cr\hline
+B1&Bridge Rectifier&70V, 1.5A&1&B70C1500RUND\cr\hline
+C1..C6, C9, C14&Ceramic Capacitor&100nF&8&X7R-5 100N\cr\hline
+C7&Electrolytic Capacitor&10\textmu F, 35V, axial&1&AX 10/35\cr\hline
+C8&Electrolytic Capacitor&220\textmu F, 63V, radial&1&RAD 220/63\cr\hline
+C10..C13&Electrolytic Capacitor&1\textmu F, 63V, radial&4&RAD 1/63\cr\hline
+D1&Diode&1N4001&1&1N 4001\cr\hline
+J1&Screw Terminal&5.08mm&1&CTB0509-2\cr\hline
+J2&Barrel Jack&5.5mm x 2.1mm&1&DC BU21 90\footnote{The original board required specifically a Lumberg 1613-18 which has an unorthodox pin layout. This board can still fit that type but also more common ones like the one linked here.}\cr\hline
+J3, J11, J13, SPARE, JP4&Pin Header&2.54mm, 2 rows, 34 total&1&SL 2X36G 2,54\cr\hline
+J4..J7, J12, J14, J15, SPARE, JP1..JP3&Pin Header&2.54mm, 1 row, 49 total&1&SL 1X50G 2,54\cr\hline
+J8, J9&Box Header&2.54mm, 2x5&2&WSL 10G\cr\hline
+J10&D-SUB connector&9 pole, female&1&D-SUB BU 09EU\cr\hline
+\multirow{3}{*}{J16}&LCD module&2x16 characters&1&LCD-PM 2X16-6 E\footnote{The original board required specifically this LCD which has an unorthodox pin layout. This board provides two PIN options for the LCD module, marked on the PCB. Any HD44780-compatible 2x16 LCD should normally do. Just make sure not to get one with an ''extended temperature range`` -- those require a negative V0 voltage which this board cannot provide.}\cr\cline{2-5}
+&Pin header&2.54mm, 1x16&1&SL 1X36G 2,54\cr\cline{2-5}
+&Pin socket&2.54mm, 1x16\footnote{If you want to alternate between both kinds of LCD, use a 1x18 pin socket. Otherwise just solder the 1x16 pin socket into the right place that works for your LCD and leave the remaining two pins unpopulated.}&1&BL 1X16G7 2,54\cr\hline
+LED1, LEDC7, LEDC8&LED&3mm, green&3&LED 3MM GN\cr\hline
+LEDA1..LEDA8, LEDC3..LEDC6&LED&3mm, red&12&LED 3MM RT\cr\hline
+LEDC1, LEDC2&LED&3mm, yellow&2&LED 3MM GE\cr\hline
+R1&Resistor&100\textOmega&1&METALL 100\cr\hline
+R5&Resistor&5.1\textOmega&1&METALL 5,10\cr\hline
+R6&Resistor&1.5k\textOmega&1&METALL 1,50K\cr\hline
+R9&Potentiometer&10k\textOmega&1&76-10 10K\cr\hline
+R17..R20, R22..R25&Resistor&10k\textOmega&8&METALL 10,0K\cr\hline
+R26..R29&Resistor&3.3k\textOmega&4&METALL 3,30K\cr\hline
+R30, R31&Resistor&100k\textOmega&2&METALL 100K\cr\hline
+RN1, RN2&Resistor network&8x 1.5k\textOmega&2&SIL 9-8 1,5K\cr\hline
+SW1..SW5&Pushbutton switch&SPST&5&TASTER 9308\cr\hline
+\multirow{2}{*}{U1}&Microcontroller&ATmega644-20PU\footnote{ATmega644\textbf{A}-20PU works as well.}&1&ATMEGA 644-20 PU\cr\cline{2-5}
+&IC Socket&2x20, 15.24mm&1&GS 40P\cr\hline
+\multirow{2}{*}{U2}&RS-232 transceiver&MAX232&1&TS232CPE\cr\cline{2-5}
+&IC Socket&2x8, 7.62mm&1&GS 16P\cr\hline
+U3&Voltage regulator&7805&1&μA 7805\cr\hline
+\multirow{2}{*}{Y1}&Crystal oscillator&20MHz&1&OSZI 20,000000\cr\cline{2-5}
+&IC Socket&2x7, 7.62mm&1&GS 14P\cr\hline
+Y2&Watch crystal&32.768kHz&1&IQD LFXTAL014219\cr\hline
+&Jumper&2.54mm&5..21\footnote{You need 5 for JP1..JP4 and 16 more if you want to connect Ports A and C to the LEDs without having to use jumper cables.}&JUMPER 2,54 SW\cr\hline
+&Jumper cables&2.54mm, f/f&1&DEBO KABELSET12\footnote{This comes with 40 single jumper cables which should be more than enough for anything you do with this board. If you want a more convenient method for connecting a whole port at once, you can get cables with a single 8x plug on each side. These are more expensive though, and you will still need the single ones.}\cr\hline
+\end{longtable}
+\end{center}
+
+Optional extras:
+\begin{itemize}
+\item Screws (M2), nuts, washers (plastic), and spacers (Reichelt\# DK 10MM) for a more durable attachment of the LCD
+\item Rubber feet to glue or screw on
+\end{itemize} 
+\end{document}

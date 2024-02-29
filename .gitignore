@@ -1,0 +1,16 @@
+*.kicad_prl
+*.xml
+*-backups
+fp-info-cache
+Gerbers
+
+*.aux
+*.log
+*.out
+*.toc
+
+*.o
+*.d
+*.elf
+*.hex
+
