@@ -385,7 +385,7 @@ On Linux, installing AVR-GCC is as simple as installing three packages. For exam
 sudo apt-get install gcc-avr avr-libc binutils-avr
 \end{lstlisting}
 
-For Windows, download\footnote{The toolchain is also part of Microchip Studio, so if you've installed the latter, you're all set.} the \href{https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers/}{AVR 8-bit Toolchain} from Microchip. Extract it somewhere and add the \file{bin} subdirectory to the PATH environment variable. 
+For Windows, download\footnote{The toolchain is also part of Atmel Studio, so if you've installed the latter, you're all set.} the \href{https://www.microchip.com/en-us/tools-resources/develop/microchip-studio/gcc-compilers/}{AVR 8-bit Toolchain} from Microchip. Extract it somewhere and add the \file{bin} subdirectory to the PATH environment variable. 
 
 Create a file \file{blink.c} with the contents from Listing \ref{lst:blink}. This is the microcontroller equivalent of ``Hello World'', a minimalistic program which flashes an LED connected to Port A0. 
 
@@ -591,7 +591,7 @@ Change to the directory containing the \file{blink.hex} file, then flash it:
 avrdude -c usbasp -p m644 -U flash:w:blink.hex:i
 \end{lstlisting}
 
-If the LED starts blinking, you have successfully deployed your first microcontroller program. 
+If the LEDs starts blinking, you have successfully deployed your first microcontroller program. 
 
 \subsubsection{Example: Programming with USBasp and Microchip Studio}\label{sec:exMchpStudioProg}
 While Microchip Studio doesn't recognise third-party programmers directly, it can be configured to use AVRDUDE. First, make sure that AVRDUDE works from the command line, see Section \ref{sec:exUsbaspAvrdude}. 
