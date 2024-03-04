@@ -541,7 +541,7 @@ Due to the many possible combinations of programming hardware and software, we c
 Prepare the board by connecting Pin A0 to LEDA1 using a jumper or jumper wire. Apply power to the board.
 
 \subsubsection{Example: Programming with USBasp and AVRDUDE}\label{sec:exUsbaspAvrdude}
-Remove the target power jumper (see Figure \ref{fig:usbasp}) from the USBasp. Connect it to your computer via USB and to the board's ISP connector J8 with the ribbon cable. 
+Remove the target power jumper (see Figure \ref{fig:usbasp}) from the USBasp. Connect it to your computer via USB and to the board's ISP connector J8 with the ribbon cable, see Figure \ref{fig:usbAspProg}. 
 
 \begin{figure}[htb]
 \centering
@@ -554,6 +554,13 @@ On Linux, all you have to do is install AVRDUDE via the package manager, e.g.\ o
 \begin{lstlisting}[language=bash]
 sudo apt-get install avrdude
 \end{lstlisting}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{Pictures/UsbAspProg.jpg}
+\caption{ISP Programming with USBasp}
+\label{fig:usbAspProg}
+\end{figure}
 
 On Windows, USBasp will be listed as an unrecognised device in the Device Manager, like in Figure \ref{fig:deviceManagerBefore}. 
 \begin{figure}[htb]
@@ -593,6 +600,7 @@ avrdude -c usbasp -p m644 -U flash:w:blink.hex:i
 
 If the LEDs starts blinking, you have successfully deployed your first microcontroller program. 
 
+\FloatBarrier
 \subsubsection{Example: Programming with USBasp and Microchip Studio}\label{sec:exMchpStudioProg}
 While Microchip Studio doesn't recognise third-party programmers directly, it can be configured to use AVRDUDE. First, make sure that AVRDUDE works from the command line, see Section \ref{sec:exUsbaspAvrdude}. 
 
@@ -617,6 +625,7 @@ While Microchip Studio doesn't recognise third-party programmers directly, it ca
 In your projects, you have to select the ``Release'' target instead of ``Debug''. Or change the arguments accordingly. 
 \end{note}
 
+\FloatBarrier
 \subsubsection{Example: Programming with USBasp and MPLAB X}\label{sec:exMPLABX}
 Like Microchip Studio, MPLAB X also doesn't recognise third-party programmers. There is no option to add a new menu item for an external tool, but you can specify a command to be executed after building. Unfortunately, this has to be done for every single project. 
 
@@ -636,13 +645,12 @@ into the text field. See Figure \ref{fig:AvrdudeMPLABX}.
 \end{figure}
 
 \FloatBarrier
-
 \subsubsection{Example: Programming with Arduino and AVRDUDE}\label{sec:exArduino}
 For this, you need an Arduino, a 10\textmu F capacitor, and some jumper wires. Several types of Arduino work, but it must be 5V tolerant. We recommend an Arduino Uno or Nano based on the ATmega328P. 
 
 Install the \href{https://www.arduino.cc/en/software}{Arduino IDE} and connect the Arduino via USB. Your operating system should recognise the Arduino as a (virtual) serial port. The port is something like COM? on Windows or /dev/ttyUSB? on Linux, where the `?' is some number. 
 
-From the ``Tools'' menu, select the board and processor you're using, as well as the port that the Arduino board is connected to, see Figure \ref{fig:arduinoIDE}. In the ``File'' menu, go to ``Examples'' and open ``ArduinoISP''. Click on the ``Upload'' button to program the Arduino. This is all the Arduino IDE is needed for, you can uninstall it now. 
+From the ``Tools'' menu, select the board and if necessary the processor you're using, as well as the port that the Arduino board is connected to, see Figure \ref{fig:arduinoIDE}. In the ``File'' menu, go to ``Examples'' and open ``ArduinoISP''. Click on the ``Upload'' button to program the Arduino. This is all the Arduino IDE is needed for, you can uninstall it now. 
 
 \begin{figure}[htb]
 \centering
@@ -651,7 +659,7 @@ From the ``Tools'' menu, select the board and processor you're using, as well as
 \label{fig:arduinoIDE}
 \end{figure}
 
-Use five jumper wires to connect the Arduino to the evaluation board. They need to be male-to-female for the Uno and female-to-female for the Nano. Figure \ref{fig:arduinoISPConn} lists the necessary connections and shows the pins of the ISP connector J8. You also need to put a 10\textmu F capacitor between one of the Arduino's reset pins (``RST'') and GND. On the Uno, you can just stick it into the pin sockets. On the Nano, solder it to the pins or use female-to-female jumper cables. If you are using a polarised (electrolytic) capacitor, pay attention to the correct orientation. See Figure \ref{fig:arduinoProg} for an example. 
+Use five jumper wires to connect the Arduino to the evaluation board. They need to be male-to-female for the Uno and female-to-female for the Nano. Figure \ref{fig:arduinoISPConn} lists the necessary connections and shows the pins of the ISP connector J8. You also need to put a 10\textmu F capacitor between one of the Arduino's reset pins (``RST'' or ``RES'') and GND. On the Uno, you can just stick it into the pin sockets. On the Nano, solder it to the pins or use female-to-female jumper cables. If you are using a polarised (electrolytic) capacitor, pay attention to the correct orientation. See Figures \ref{fig:arduinoUnoProg} and \ref{fig:arduinoNanoProg}. 
 
 \begin{figure}[htb]
 \begin{minipage}{.48\textwidth}
@@ -687,9 +695,15 @@ GND&10 (GND)
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=0.85\textwidth]{Pictures/ArduinoProg.jpg}
+\includegraphics[width=0.85\textwidth]{Pictures/ArduinoUnoProg.jpg}
+\caption{Arduino Uno as ISP Programmer}
+\label{fig:arduinoUnoProg}
+\end{figure}
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.85\textwidth]{Pictures/ArduinoNanoProg.jpg}
 \caption{Arduino Nano as ISP Programmer}
-\label{fig:arduinoProg}
+\label{fig:arduinoNanoProg}
 \end{figure}
 
 Now you can program with AVRDUDE (insert the serial port after the \texttt{-P} argument):
