@@ -65,7 +65,7 @@
 /**
  * \brief Redirect stdin, stdout, and/or stderr to serial
  * 
- * Has no effect ic SERIAL_RECEIVE and/or SERIAL_TRANSMIT is not on
+ * Has no effect if SERIAL_RECEIVE and/or SERIAL_TRANSMIT is not on
  */
 #define SERIAL_REDIRECT_STDIN 1
 #define SERIAL_REDIRECT_STDOUT 1
